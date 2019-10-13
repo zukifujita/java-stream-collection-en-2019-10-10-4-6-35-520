@@ -13,15 +13,21 @@ public class Reduce {
     }
 
     public int getMaximum() {
-        throw new NotImplementedException();
+        return arrayList.stream()
+                .reduce(Integer.MIN_VALUE, Integer::max);
     }
 
     public double getMinimum() {
-        throw new NotImplementedException();
+        return arrayList.stream()
+                .reduce(Integer.MAX_VALUE, Integer::min);
     }
 
     public double getAverage() {
-        throw new NotImplementedException();
+        return arrayList.stream()
+                .reduce(Integer::sum)
+                .map(Integer::doubleValue)
+                .map(number -> number / arrayList.size())
+                .get();
     }
 
     public double getOrderedMedian() {
